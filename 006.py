@@ -3,10 +3,10 @@ def char_ngram(sentence, n):
 
 X = set(char_ngram("paraparaparadise", 2))
 Y = set(char_ngram("paragraph", 2))
-print('union: ', set.union(X, Y))
-print('intersection: ', set.intersection(X, Y))
-print('X/Y: ', set.difference(X, Y))
-print('Y/X: ', set.difference(Y, X))
+print('union:', set.union(X, Y))
+print('intersection:', set.intersection(X, Y))
+print('X/Y:', set.difference(X, Y))
+print('Y/X:', set.difference(Y, X))
 if 'se' in X:
     print('\'se\' is in X')
 else:
