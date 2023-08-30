@@ -6,7 +6,8 @@ def extract_section(filepath):
             level = 1
             while m[level+1] == '=' and m[-level-2] == '=':
                 level += 1
-            print(m[level+1:-level-1], level)
+            m = re.sub(r'\s*(.*?)\s*', r'\1', m[level+1:-level-1])
+            print(m, level)
     return
 
 extract_section('britain.txt')
