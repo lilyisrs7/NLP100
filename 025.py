@@ -8,7 +8,7 @@ def extract_template(filepath):
         for item in re.findall(r'\n\|(.*?)(?=(\n\||\n\}\}))', m[0], re.S):
             field, val = re.search(r'(.*?)\=(.*)', item[0], re.S).groups()
             field = re.sub(r'\s*(.*?)\s*', r'\1', field)
-            val = re.sub(r'\s*(.*?)\s*', r'\1', val, re.S)
+            val = re.sub(r'(?:(?!\n)\s)*(.*?)(?:(?!\n)\s)*', r'\1', val, flags=re.S)
             basicinfo[field] = val
     for k, v in basicinfo.items():
         print(k, ':', v)
