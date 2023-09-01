@@ -9,7 +9,7 @@ def extract_template_remove_markup(filepath):
             field, val = re.search(r'(.*?)\=(.*)', item[0], re.S).groups()
             field = re.sub(r'\s*(.*?)\s*', r'\1', field)
             field = re.sub(r'\'{2,5}', r'', field)
-            val = re.sub(r'(?:(?!\n)\s)*(.*?)(?:(?!\n)\s)*', r'\1', val, flags=re.S)
+            val = re.sub(r'^(?:(?!\n)\s)*(.*?)(?:(?!\n)\s)*$', r'\1', val, flags=(re.S|re.M))
             val = re.sub(r'\'{2,5}', r'', val)
             basicinfo[field] = val
     for k, v in basicinfo.items():
