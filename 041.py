@@ -15,9 +15,9 @@ class Chunk:
 
 def read_ai_chunks(filepath):
     ai = []
-    src_lst = defaultdict(list)
     with open(filepath) as f:
         sentence = []
+        src_lst = defaultdict(list)
         for line in f.readlines():
             if line.startswith('*'):
                 info = line.split()
@@ -32,6 +32,7 @@ def read_ai_chunks(filepath):
                     if sentence != [] and sentence[-1].morphs != []:
                         ai.append(sentence)
                         sentence = []
+                        src_lst = defaultdict(list)
                 else:
                     surface = info[0]
                     info_ = info[1].split(',')
